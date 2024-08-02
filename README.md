@@ -16,9 +16,14 @@
 
 ![-----------------------------------------------------](./Readme%20Resources/Çizgi.png)
 
+<a href="https://github.com/mustafatoktas/W.BE_RepoVisitorCounterAPI" target="_blank"> <img src="https://toktasoft.com/api/github/repo-visitor-counter.php?repo=otn1xh4fnl4umsm&show_repo_name=1&show_date=1&show_brand=0" alt="Repo Visitor Counter"/> </a>
+
+
+![-----------------------------------------------------](./Readme%20Resources/Çizgi.png)
+
 ## API Hakkında
 
-Bu repo, Php diliyle geliştirmiş olduğum namaz vakitlerini sunan
+Bu repo, Php diliyle geliştirilmiş olan namaz vakitlerini sunan
 API'nin dokümantasyonunu içerir.
 
 API, namaz vakitlerini ve API anahtarı bilgilerini sunan iki farklı endpoint'ten oluşmaktadır.
@@ -40,7 +45,7 @@ Base URL: `https://toktasoft.com/api/namaz-vakitleri/`
 
 URL: `https://toktasoft.com/api/namaz-vakitleri/vakitler.php`
 
-Bu endpoint sadece 3 parametre almaktadır.
+Bu endpoint 3 farklı parametre almaktadır.
 
 | Parametre                       | Zorunlu Mu?                 | Açıklama                                                                |
 | ------------------------------- | --------------------------- | ----------------------------------------------------------------------- |
