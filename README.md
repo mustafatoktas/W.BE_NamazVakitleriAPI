@@ -23,7 +23,7 @@ API'nin dokümantasyonunu içerir.
 
 API, namaz vakitlerini ve API anahtarı bilgilerini sunan iki farklı endpoint'ten oluşmaktadır.
 Namaz vakitlerini sunan endpoint HTTP GET istekleriyle `il`, `ilce` ve `api_key` parametrelerini alır
-ve belirtilen şehrin namaz vakitlerini 14 gün sonrasına kadar JSON formatında sağlar
+ve belirtilen şehrin namaz vakitlerini 14 gün sonrasına kadar JSON formatında sağlar.
 
 API anahtarı bilgilerini sunan endpoint ise kullanıcının API anahtarının seviyesini,
 aylık istek sınırını ve kalan istek sayısını JSON formatında sağlar.
@@ -150,11 +150,11 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 ```
 
 ```sh
-curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=manisa&ilce=elazig"
+curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=elazig"
 ```
 
 ```sh
-curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=manisa&ilce=ElaZIg"
+curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=ElaZIg&ilce=ElaZIg"
 ```
 
 ```json
