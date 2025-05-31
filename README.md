@@ -1,4 +1,6 @@
-<h1 align="center">Namaz Vakitleri API</h1>
+<h1 align="center">
+Namaz Vakitleri API<a name="readme-top"></a>
+</h1>
 
 <div align="center">
   <img src="./Readme Resources/Namaz Vakitleri API Logo.png" alt="Logo" width="120"/>
@@ -14,12 +16,11 @@
 - [İletişim](#i̇letişim)
 
 
-![-----------------------------------------------------](./Readme%20Resources/Çizgi.png)
+![-----------------------------------------------------](./Readme%20Resources/Line.png)
 
 ## API Hakkında
 
-Bu repo, Php diliyle geliştirilmiş olan namaz vakitlerini sunan
-API'nin dokümantasyonunu içerir.
+Bu repo, namaz vakitlerini sunan API'nin dokümantasyonunu içerir.
 
 API, namaz vakitlerini ve API anahtarı bilgilerini sunan iki farklı endpoint'ten oluşmaktadır.
 Namaz vakitlerini sunan endpoint HTTP GET istekleriyle `il`, `ilce` ve `api_key` parametrelerini alır
@@ -29,7 +30,7 @@ API anahtarı bilgilerini sunan endpoint ise kullanıcının API anahtarının s
 aylık istek sınırını ve kalan istek sayısını JSON formatında sağlar.
 
 
-![-----------------------------------------------------](./Readme%20Resources/Çizgi.png)
+![-----------------------------------------------------](./Readme%20Resources/Line.png)
 
 ## Dokümantasyon
 
@@ -44,9 +45,9 @@ Bu endpoint 3 farklı parametre almaktadır.
 
 | Parametre                       | Zorunlu Mu?                 | Açıklama                                                                |
 | ------------------------------- | --------------------------- | ----------------------------------------------------------------------- |
+| <p align="center">`api_key`</p> | <p align="center">evet</p>  | Kullanıcının API anahtarı                                               |
 | <p align="center">`il`</p>      | <p align="center">evet</p>  | İl adı                                                                  |
 | <p align="center">`ilce`</p>    | <p align="center">hayır</p> | İlçe adı <br> Parametre girilmezse merkez ilçenin vakitleri döndürülür. |
-| <p align="center">`api_key`</p> | <p align="center">evet</p>  | Kullanıcının API anahtarı                                               |
 
 
 ### API Anahtar Bilgilerini Sunan Endpoint
@@ -74,7 +75,7 @@ API anahtarı sahibi olabilmek için iletişime geçilmesi gerekilmektedir.
 | VIP         | Sınırsız           |
 
 
-![-----------------------------------------------------](./Readme%20Resources/Çizgi.png)
+![-----------------------------------------------------](./Readme%20Resources/Line.png)
 
 ## İstek Örnekleri
 
@@ -94,32 +95,35 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 
 ```json
 {
-  "success": true,
-  "result": [
-    {
-      "tarih": "29-07-2024",
-      "imsak": "04:23",
-      "sabah": "06:02",
-      "ogle": "13:22",
-      "ikindi": "17:13",
-      "aksam": "20:31",
-      "yatsi": "22:04"
-    },
-    {
-      "tarih": "30-07-2024",
-      "imsak": "04:24",
-      "sabah": "06:03",
-      "ogle": "13:22",
-      "ikindi": "17:13",
-      "aksam": "20:30",
-      "yatsi": "22:02"
-    },
-    ...
-  ],
-  "today": "29 Temmuz Pazartesi",
-  "city": "Manisa",
-  "district": null,
-  "monthly_request_count": 84
+  "status": 200,
+  "monthly_request_count": 84,
+  "result": {
+    "today": "31 Mayıs Cumartesi",
+    "city": "Manisa",
+    "district": null,
+    "vakitler": [
+      {
+        "tarih": "31-05-2025",
+        "imsak": "03:54",
+        "sabah": "05:41",
+        "ogle": "13:13",
+        "ikindi": "17:07",
+        "aksam": "20:35",
+        "yatsi": "22:14"
+      },
+      {
+        "tarih": "01-06-2025",
+        "imsak": "03:54",
+        "sabah": "05:41",
+        "ogle": "13:13",
+        "ikindi": "17:07",
+        "aksam": "20:36",
+        "yatsi": "22:15"
+      },
+      ...
+    ]
+  },
+  "error": null
 }
 ```
 
@@ -134,9 +138,10 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 
 ```json
 {
-  "success": false,
-  "error": "Geçersiz ilçe parametresi.",
-  "monthly_request_count": 106
+  "status": 400,
+  "monthly_request_count": 106,
+  "result": null,
+  "error": "Geçersiz ilçe parametresi"
 }
 ```
 
@@ -154,37 +159,40 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 ```
 
 ```sh
-curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=ElaZIg&ilce=ElaZIg"
+curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=ElaZİg&ilce=ElaZİg"
 ```
 
 ```json
 {
-  "success": true,
-  "result": [
-    {
-      "tarih": "30-07-2024",
-      "imsak": "03:37",
-      "sabah": "05:16",
-      "ogle": "12:35",
-      "ikindi": "16:26",
-      "aksam": "19:43",
-      "yatsi": "21:15"
-    },
-    {
-      "tarih": "31-07-2024",
-      "imsak": "03:38",
-      "sabah": "05:17",
-      "ogle": "12:35",
-      "ikindi": "16:25",
-      "aksam": "19:42",
-      "yatsi": "21:14"
-    },
-    ...
-  ],
-  "today": "30 Temmuz Salı",
-  "city": "Elazığ",
-  "district": null,
-  "monthly_request_count": 122
+  "status": 200,
+  "monthly_request_count": 122,
+  "result": {
+    "today": "31 Mayıs Cumartesi",
+    "city": "Elazığ",
+    "district": "Elazığ",
+    "vakitler": [
+      {
+        "tarih": "31-05-2025",
+        "imsak": "03:07",
+        "sabah": "04:54",
+        "ogle": "12:26",
+        "ikindi": "16:20",
+        "aksam": "19:48",
+        "yatsi": "21:27"
+      },
+      {
+        "tarih": "01-06-2025",
+        "imsak": "03:06",
+        "sabah": "04:53",
+        "ogle": "12:26",
+        "ikindi": "16:20",
+        "aksam": "19:49",
+        "yatsi": "21:28"
+      },
+      ...
+    ]
+  },
+  "error": null
 }
 ```
 
@@ -196,32 +204,35 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 
 ```json
 {
-  "success": true,
-  "result": [
-    {
-      "tarih": "30-07-2024",
-      "imsak": "04:21",
-      "sabah": "06:01",
-      "ogle": "13:20",
-      "ikindi": "17:12",
-      "aksam": "20:29",
-      "yatsi": "22:02"
-    },
-    {
-      "tarih": "31-07-2024",
-      "imsak": "04:23",
-      "sabah": "06:02",
-      "ogle": "13:20",
-      "ikindi": "17:11",
-      "aksam": "20:28",
-      "yatsi": "22:01"
-    },
-    ...
-  ],
-  "today": "30 Temmuz Salı",
-  "city": "Manisa",
-  "district": "Akhisar",
-  "monthly_request_count": 187
+  "status": 200,
+  "monthly_request_count": 187,
+  "result": {
+    "today": "31 Mayıs Cumartesi",
+    "city": "Manisa",
+    "district": "Akhisar",
+    "vakitler": [
+      {
+        "tarih": "31-05-2025",
+        "imsak": "03:51",
+        "sabah": "05:39",
+        "ogle": "13:11",
+        "ikindi": "17:06",
+        "aksam": "20:34",
+        "yatsi": "22:14"
+      },
+      {
+        "tarih": "01-06-2025",
+        "imsak": "03:50",
+        "sabah": "05:38",
+        "ogle": "13:12",
+        "ikindi": "17:06",
+        "aksam": "20:35",
+        "yatsi": "22:15"
+      },
+      ...
+    ]
+  },
+  "error": null
 }
 ```
 
@@ -235,9 +246,10 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 
 ```json
 {
-  "success": false,
-  "error": "Geçersiz ilçe parametresi.",
-  "monthly_request_count": 201
+  "status": 400,
+  "monthly_request_count": 201,
+  "result": null,
+  "error": "Geçersiz ilçe parametresi"
 }
 ```
 
@@ -249,25 +261,27 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/apikey.php?api_key=myapik
 
 ```json
 {
-  "success": true,
+  "status": 200,
+  "monthly_request_count": 78,
   "result": {
-    "api_key": "myapikey",
-    "api_level": "Gümüş",
+    "api_key": "mustafa",
+    "api_level": "Bronz",
     "max_requests_per_month": 500,
     "remaining_requests": 422
   },
-  "monthly_request_count": 78
+  "error": null
 }
 ```
 
 
-![-----------------------------------------------------](./Readme%20Resources/Çizgi.png)
+![-----------------------------------------------------](./Readme%20Resources/Line.png)
 
 ## Bazı Şehir İsmi İstisnaları
 
-Farklı illerde bulunan bazı ilçeler aynı isimlere sahip olabiliyor. Bu yüzden bu ilçeler için istisnai istek isimleri belirlendi. 
+Farklı illerde bulunan ilçeler bazen aynı isimlere sahip olabiliyor. Bu yüzden bu ilçeler için istisnai istek isimleri belirlendi. 
 
-- Aydın - Bilecik | Yenipazar
+- Aydın ve Bilecik'te bulunan Yenipazar
+
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=bilecik&ilce=yenipazar"
 ```
@@ -276,7 +290,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=aydin&ilce=yenipazar-a"
 ```
 
-- Antalya - Burdur | Kemer
+- Antalya ve Burdur'da bulunan Kemer
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=antalya&ilce=kemer"
@@ -286,7 +300,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=burdur&ilce=kemer-b"
 ```
 
-- Antalya - Isparta | Aksu
+- Antalya ve Isparta'da bulunan Aksu
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=antalya&ilce=aksu"
@@ -296,7 +310,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=isparta&ilce=aksu-i"
 ```
 
-- Denizli - Kastamonu | Bozkurt
+- Denizli ve Kastamonu'da bulunan Bozkurt
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=denizli&ilce=bozkurt"
@@ -306,7 +320,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=kastamonu&ilce=bozkurt-k"
 ```
 
-- Kayseri - Kastamonu | Pınarbaşı
+- Kayseri ve Kastamonu'da bulunan Pınarbaşı
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=kayseri&ilce=pinarbasi"
@@ -316,7 +330,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=kastamonu&ilce=pinarbasi-k"
 ```
 
-- Rize - Tokat | Pazar
+- Rize ve Tokat'ta bulunan Pazar
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=rize&ilce=pazar"
@@ -326,7 +340,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=tokat&ilce=pazar-t"
 ```
 
-- Manisa - Trabzon | Köprübaşı
+- Manisa ve Trabzon'da bulunan Köprübaşı
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=manisa&ilce=koprubasi"
@@ -336,7 +350,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=trabzon&ilce=koprubasi-t"
 ```
 
-- Balıkesir - Van | Edremit
+- Balıkesir ve Van'da bulunan Edremit
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=balikesir&ilce=edremit"
@@ -346,7 +360,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=van&ilce=edremit-v"
 ```
 
-- Tekirdağ - Van | Saray
+- Tekirdağ ve Van'da bulunan Saray
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=tekirdag&ilce=saray"
@@ -356,7 +370,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=van&ilce=saray-v"
 ```
 
-- Mersin - Yozgat | Aydıncık
+- Mersin ve Yozgat'ta bulunan Aydıncık
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=mersin&ilce=aydincik"
@@ -366,7 +380,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=yozgat&ilce=aydincik-y"
 ```
 
-- Tunceli - Karabük | Ovacık
+- Tunceli ve Karabük'te bulunan Ovacık
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=tunceli&ilce=ovacik"
@@ -376,7 +390,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=karabuk&ilce=ovacik-k"
 ```
 
-- Çanakkale - Karabük | Yenice
+- Çanakkale ve Karabük'te bulunan Yenice
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=canakkale&ilce=yenice"
@@ -386,7 +400,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=karabuk&ilce=yenice-k"
 ```
 
-- Burdur - Sivas | Altınyayla
+- Burdur ve Sivas'ta bulunan Altınyayla
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=burdur&ilce=altinyayla"
@@ -396,7 +410,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=sivas&ilce=altinyaylas"
 ```
 
-- Konya - Zonguldak | Ereğli
+- Konya ve Zonguldak'ta bulunan Ereğli
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=konya&ilce=eregli"
@@ -406,40 +420,47 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=zonguldak&ilce=karadeniz-eregli"
 ```
 
+
 ### Diğer İstisnai Şehir İstek İsimleri
 
-- Isparta | Şarkikaraağaç
+- Isparta'da bulunan Şarkikaraağaç
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=isparta&ilce=sarki-karaagac"
 ```
 
-- Isparta | Yenişarbademli
+- Isparta'da bulunan Yenişarbademli
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=isparta&ilce=yenisar-bademli"
 ```
 
-- Tekirdağ | Marmaraereğlisi
+- Tekirdağ'da bulunan Marmaraereğlisi
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=tekirdag&ilce=mereglisi"
 ```
 
 
-![-----------------------------------------------------](./Readme%20Resources/Çizgi.png)
+![-----------------------------------------------------](./Readme%20Resources/Line.png)
 
-<a href="https://github.com/mustafatoktas/W.BE_RepoVisitorCounterAPI" target="_blank"> <img src="https://toktasoft.com/api/github2/repo-visitor-counter.php?repo=otn1xh4fnl4umsm&show_repo_name=1&show_date=1&show_brand=0" alt="Repo Visitor Counter"/> </a>
+<div align="center">
+  <a href="https://github.com/mustafatoktas/W.BE_RepoVisitorCounterAPI"><img src="https://toktasoft.com/api/repo-visitor-counter?repo=otn1xh4fnl4umsm&show_repo_name=1&show_date=1&show_brand=0&txt_color=209,215,224&bg_color=45,52,58" alt="Repo Visitor Counter"/></a>
+</div>
 
-<a href="https://buymeacoffee.com/mustafatoktas" target="_blank"> <img src="./Readme Resources/İletişim/Buy Me a Coffee.png" alt="Buy Me a Coffee" height="64"/> </a>
+<br>
+  
+<div align="center">
+  <a href="https://buymeacoffee.com/mustafatoktas"><img src="./Readme Resources/Communication/Buy Me a Coffee.png" alt="Buy Me a Coffee" height="64"/></a>
+</div>
 
 
-![-----------------------------------------------------](./Readme%20Resources/Çizgi.png)
+![-----------------------------------------------------](./Readme%20Resources/Line.png)
 
 ## Lisans
 
 ```
-Copyright 2024 Mustafa TOKTAŞ
+Copyright 2024-2025 Mustafa TOKTAŞ
 
 Licensed under the GNU General Public License v3.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -455,10 +476,14 @@ limitations under the License.
 ```
 
 
-![-----------------------------------------------------](./Readme%20Resources/Çizgi.png)
+![-----------------------------------------------------](./Readme%20Resources/Line.png)
 
 ## İletişim
 
-<a href="mailto:info@mustafatoktas.com"              target="_blank"> <img src="./Readme Resources/İletişim/Mail.png"     alt="Mail"     width="64"/> </a>
-<a href="https://t.me/mustafatoktas00"               target="_blank"> <img src="./Readme Resources/İletişim/Telegram.png" alt="Telegram" width="64"/> </a>
-<a href="https://www.linkedin.com/in/mustafatoktas/" target="_blank"> <img src="./Readme Resources/İletişim/LinkedIn.png" alt="LinkedIn" width="64"/> </a>
+<a href="mailto:info@mustafatoktas.com"             ><img src="./Readme Resources/Communication/Mail.png"     alt="Mail"     width="64"/></a>
+<a href="https://t.me/mustafatoktas00"              ><img src="./Readme Resources/Communication/Telegram.png" alt="Telegram" width="64"/></a>
+<a href="https://www.linkedin.com/in/mustafatoktas/"><img src="./Readme Resources/Communication/LinkedIn.png" alt="LinkedIn" width="64"/></a>
+
+<p align="center">
+  <a href="#readme-top"><img src="./Readme Resources/Back to Top.png" alt="Back to Top" height="64"/></a>
+</p>
