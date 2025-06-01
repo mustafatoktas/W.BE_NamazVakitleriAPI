@@ -129,7 +129,9 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 
 ❌**Yanlış İstek**
 
-Kocaeli gibi merkez ilçenin adı il adından farklı olan bölgelerde merkez ilçe vakit bilgileri için ilçe parametresine ilçenin adı değil Manisa örneğindeki gibi ilin adı yazılmalıdır.
+Kocaeli gibi merkez ilçenin adı il adından farklı olan bölgelerde
+merkez ilçe vakit bilgileri için ilçe parametresine ilçenin adı değil Manisa örneğindeki gibi ilin adı yazılmalıdır.
+
 Kocaeli'de merkez ilçenin adı İzmit'tir.
 
 ```sh
