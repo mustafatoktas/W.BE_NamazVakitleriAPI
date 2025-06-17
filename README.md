@@ -6,7 +6,7 @@ Namaz Vakitleri API<a name="readme-top"></a>
   <img src="./Readme Resources/Namaz Vakitleri API Logo.png" alt="Logo" width="120"/>
 </div>
 
-## **İçindekiler**
+## İçindekiler
 
 - [API Hakkında](#api-hakkında)
 - [Dokümantasyon](#dokümantasyon)
@@ -16,7 +16,7 @@ Namaz Vakitleri API<a name="readme-top"></a>
 - [İletişim](#i̇letişim)
 
 
-![-----------------------------------------------------](./Readme%20Resources/Line.png)
+![—————————————————————————————————————————————————](./Readme%20Resources/Line.png)
 
 ## API Hakkında
 
@@ -30,12 +30,11 @@ API anahtarı bilgilerini sunan endpoint ise kullanıcının API anahtarının s
 aylık istek sınırını ve kalan istek sayısını JSON formatında sağlar.
 
 
-![-----------------------------------------------------](./Readme%20Resources/Line.png)
+![—————————————————————————————————————————————————](./Readme%20Resources/Line.png)
 
 ## Dokümantasyon
 
 Base URL: `https://toktasoft.com/api/namaz-vakitleri/`
-
 
 ### Ana Endpoint
 
@@ -49,7 +48,6 @@ Bu endpoint 3 farklı parametre almaktadır.
 | <p align="center">`il`</p>      | <p align="center">evet</p>  | İl adı                                                                  |
 | <p align="center">`ilce`</p>    | <p align="center">hayır</p> | İlçe adı <br> Parametre girilmezse merkez ilçenin vakitleri döndürülür. |
 
-
 ### API Anahtar Bilgilerini Sunan Endpoint
 
 URL: `https://toktasoft.com/api/namaz-vakitleri/apikey.php`
@@ -59,7 +57,6 @@ Bu endpoint sadece 1 parametre almaktadır.
 | Parametre                       | Zorunlu Mu?                | Açıklama                  |
 | ------------------------------- | -------------------------- | ------------------------- |
 | <p align="center">`api_key`</p> | <p align="center">evet</p> | Kullanıcının API anahtarı |
-
 
 ### API Anahtar Seviyeleri ve Aylık Sınırları
 
@@ -75,13 +72,13 @@ API anahtarı sahibi olabilmek için iletişime geçilmesi gerekilmektedir.
 | VIP         | Sınırsız           |
 
 
-![-----------------------------------------------------](./Readme%20Resources/Line.png)
+![—————————————————————————————————————————————————](./Readme%20Resources/Line.png)
 
 ## İstek Örnekleri
 
 İstek örnekleri `curl` komut satırı aracı kullanılarak gösterilmiştir.
 
-✅**Manisa merkez ilçenin vakitleri**
+✅ **Manisa merkez ilçenin vakitleri**
 
 Merkez ilçeler için ilçe parametresi yazılmayabilir veya ilçe parametresine ilin adı yazılabilir.
 
@@ -127,10 +124,10 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 }
 ```
 
-❌**Yanlış İstek**
+❌ **Yanlış İstek**
 
-Kocaeli gibi merkez ilçenin adı il adından farklı olan bölgelerde
-merkez ilçe vakit bilgileri için ilçe parametresine ilçenin adı değil Manisa örneğindeki gibi ilin adı yazılmalıdır.
+Kocaeli gibi merkez ilçenin adı il adından farklı olan bölgelerde merkez ilçe vakit bilgileri için
+ilçe parametresine ilçenin adı değil Manisa örneğindeki gibi ilin adı yazılmalıdır.
 
 Kocaeli'de merkez ilçenin adı İzmit'tir.
 
@@ -147,9 +144,9 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 }
 ```
 
-✅**Elazığ merkez ilçenin vakitleri**
+✅ **Elazığ merkez ilçenin vakitleri**
 
-Adında ingilizce karakter dışında karakter bulunan il - ilçe farketmeksizin şehir isimleri olduğu
+Adında Türkçe karakter bulunan il - ilçe farketmeksizin şehir isimleri olduğu
 gibi yada ingilizce karakterlerle yazılabilir ve büyük küçük harf duyarlı değildir.
 
 ```sh
@@ -198,7 +195,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 }
 ```
 
-✅**Manisa'nın Akhisar ilçesinin vakitleri**
+✅ **Manisa'nın Akhisar ilçesinin vakitleri**
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=manisa&ilce=akhisar"
@@ -238,7 +235,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 }
 ```
 
-❌**Yanlış İstek**
+❌ **Yanlış İstek**
 
 İl - ilçe isimleri uyuşmazsa hata döndürülür.
 
@@ -255,7 +252,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 }
 ```
 
-✅**Apikey hakkında bilgiler**
+✅ **Apikey hakkında bilgiler**
 
 ```sh
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/apikey.php?api_key=myapikey"
@@ -276,7 +273,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/apikey.php?api_key=myapik
 ```
 
 
-![-----------------------------------------------------](./Readme%20Resources/Line.png)
+![—————————————————————————————————————————————————](./Readme%20Resources/Line.png)
 
 ## Bazı Şehir İsmi İstisnaları
 
@@ -422,7 +419,6 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myapikey&il=zonguldak&ilce=karadeniz-eregli"
 ```
 
-
 ### Diğer İstisnai Şehir İstek İsimleri
 
 - Isparta'da bulunan Şarkikaraağaç
@@ -444,7 +440,7 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 ```
 
 
-![-----------------------------------------------------](./Readme%20Resources/Line.png)
+![—————————————————————————————————————————————————](./Readme%20Resources/Line.png)
 
 <div align="center">
   <a href="https://github.com/mustafatoktas/W.BE_RepoVisitorCounterAPI"><img src="https://toktasoft.com/api/repo-visitor-counter?repo=otn1xh4fnl4umsm&show_repo_name=1&show_date=1&show_brand=0&txt_color=209,215,224&bg_color=45,52,58" alt="Repo Visitor Counter"/></a>
@@ -453,11 +449,11 @@ curl -X GET "https://toktasoft.com/api/namaz-vakitleri/vakitler.php?api_key=myap
 <br>
   
 <div align="center">
-  <a href="https://buymeacoffee.com/mustafatoktas"><img src="./Readme Resources/Communication/Buy Me a Coffee.png" alt="Buy Me a Coffee" height="64"/></a>
+  <a href="https://buymeacoffee.com/mustafatoktas"><img src="./Readme Resources/Contact/Buy Me a Coffee.png" alt="Buy Me a Coffee" height="64"/></a>
 </div>
 
 
-![-----------------------------------------------------](./Readme%20Resources/Line.png)
+![—————————————————————————————————————————————————](./Readme%20Resources/Line.png)
 
 ## Lisans
 
@@ -478,14 +474,14 @@ limitations under the License.
 ```
 
 
-![-----------------------------------------------------](./Readme%20Resources/Line.png)
+![—————————————————————————————————————————————————](./Readme%20Resources/Line.png)
 
 ## İletişim
 
-<a href="mailto:info@mustafatoktas.com"             ><img src="./Readme Resources/Communication/Mail.png"     alt="Mail"     width="64"/></a>
-<a href="https://t.me/mustafatoktas00"              ><img src="./Readme Resources/Communication/Telegram.png" alt="Telegram" width="64"/></a>
-<a href="https://www.linkedin.com/in/mustafatoktas/"><img src="./Readme Resources/Communication/LinkedIn.png" alt="LinkedIn" width="64"/></a>
+<a href="mailto:info@mustafatoktas.com"             ><img src="./Readme Resources/Contact/Mail.png"     alt="Mail"     width="64"/></a>
+<a href="https://t.me/mustafatoktas00"              ><img src="./Readme Resources/Contact/Telegram.png" alt="Telegram" width="64"/></a>
+<a href="https://www.linkedin.com/in/mustafatoktas/"><img src="./Readme Resources/Contact/LinkedIn.png" alt="LinkedIn" width="64"/></a>
 
-<p align="center">
+<div align="center">
   <a href="#readme-top"><img src="./Readme Resources/Back to Top.png" alt="Back to Top" height="64"/></a>
-</p>
+</div>
